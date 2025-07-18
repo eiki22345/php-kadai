@@ -39,6 +39,12 @@
       $potato = new Food('potato',250);
       $dog = new Animal('dog',60,5000);
      
+      echo print_r($potato) . '<br>';
+      echo print_r($dog) . '<br>';
+
+      $potato->show_price();
+      $dog->show_height();
+
       
       ?>
     </p>

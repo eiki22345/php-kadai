@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
     $stmt_update->execute();
 
-    $count = $stmt_update->rowcount();
+    $count = $stmt_update->rowCount();
 
     $message = "書籍を{$count}件更新しました。";
 
@@ -81,7 +81,7 @@ if (isset($_GET['id'])) {
 <html lang="ja">
   <head>
     <meta charset="UTF-8">
-    <title>書籍登録</title>
+    <title>書籍更新</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
 
@@ -106,16 +106,16 @@ if (isset($_GET['id'])) {
         <form action="update.php?id=<?= $_GET['id'] ?>" method="post" class="registration-form">
           <div>          
             <label for="book_code">書籍コード</label>
-            <input type="number" id="book_code" name="book_code" min="0" max="10000000000" required value="<?= $books['book_code'] ?>">
+            <input type="number" id="book_code" name="book_code" min="0" max="100000000" required value="<?= $books['book_code'] ?>">
             
             <label for="book_name">書籍名</label>
             <input type="text" id="book_name" name="book_name" maxlength="50" required value="<?= $books['book_name'] ?>">
 
             <label for="price">単価</label>
-            <input type="number" id="price" name="price" min="0" max="10000000000" required value="<?= $books['price'] ?>">
+            <input type="number" id="price" name="price" min="0" max="100000000" required value="<?= $books['price'] ?>">
 
             <label for="stock_quantity">在庫数</label>
-            <input type="number" id="stock_quantity" name="stock_quantity" min="0" max="1000000000" required value="<?= $books['stock_quantity'] ?>">
+            <input type="number" id="stock_quantity" name="stock_quantity" min="0" max="100000000" required value="<?= $books['stock_quantity'] ?>">
             
             <label for="genre_code">ジャンルコード</label>
             <select id="genre_code" name="genre_code" required>
@@ -132,7 +132,7 @@ if (isset($_GET['id'])) {
               ?>
             </select>
           </div>
-          <button type="submit" class="submit-btn" name="submit" value="create">更新</button>
+          <button type="submit" class="submit-btn" name="submit" value="update">更新</button>
         </form>
       </article>
     </main>

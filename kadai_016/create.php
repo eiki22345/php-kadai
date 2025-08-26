@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
 
     $stmt_insert->execute();
 
-    $count = $stmt_insert->rowcount();
+    $count = $stmt_insert->rowCount();
 
     $message = "書籍を{$count}件登録しました。";
 
@@ -76,16 +76,16 @@ try {
         <form action="create.php" method="post" class="registration-form">
           <div>          
             <label for="book_code">書籍コード</label>
-            <input type="number" id="book_code" name="book_code" min="0" max="10000000000" required>
+            <input type="number" id="book_code" name="book_code" min="0" max="100000000" required>
             
             <label for="book_name">書籍名</label>
             <input type="text" id="book_name" name="book_name" maxlength="50" required>
 
             <label for="price">単価</label>
-            <input type="number" id="price" name="price" min="0" max="10000000000" required>
+            <input type="number" id="price" name="price" min="0" max="100000000" required>
 
             <label for="stock_quantity">在庫数</label>
-            <input type="number" id="stock_quantity" name="stock_quantity" min="0" max="1000000000" required>
+            <input type="number" id="stock_quantity" name="stock_quantity" min="0" max="100000000" required>
             
             <label for="genre_code">ジャンルコード</label>
             <select id="genre_code" name="genre_code" required>

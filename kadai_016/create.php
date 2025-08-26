@@ -68,7 +68,7 @@ try {
     </header>
     <main>
       <article class="registration">
-        <h1>新規登録</h1>
+        <h1>書籍登録</h1>
         <div class="back">
           <a href="read.php" class="btn">&lt; 戻る</a>
         </div>

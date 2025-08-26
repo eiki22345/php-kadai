@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
 
     $count = $stmt_update->rowcount();
 
-    $message = "商品を{$count}件更新しました。";
+    $message = "書籍を{$count}件更新しました。";
 
     header("Location: read.php?message={$message}");
 
@@ -61,7 +61,7 @@ if (isset($_GET['id'])) {
 
   
 
-  $sql_select_genre_codes = 'SELECT genre_code FROM books';
+  $sql_select_genre_codes = 'SELECT genre_code FROM genres';
 
   $stmt_select_genre_codes = $pdo->query($sql_select_genre_codes);
 
@@ -73,11 +73,7 @@ if (isset($_GET['id'])) {
   }
 }
 
-try {
 
-} catch(PDOException $e) {
-  exit($e->getMessage());
-}
 
 ?>
 
@@ -127,7 +123,11 @@ try {
               <?php
 
               foreach($genre_codes as $genre_code) {
-                echo "<option vlaue='{$genre_code}'>{$genre_code}</option>";
+                if($genre_code === $books['genre_code']) {
+                  echo "<option value='{$genre_code}' selected>{$genre_code}</option>";
+                } else {
+                  echo "<option value='{$genre_code}'>{$genre_code}</option>";
+                }
               }
               ?>
             </select>

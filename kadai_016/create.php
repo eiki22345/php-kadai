@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 
     $count = $stmt_insert->rowcount();
 
-    $message = "商品を{$count}件登録しました。";
+    $message = "書籍を{$count}件登録しました。";
 
     header("Location: read.php?message={$message}");
   }  catch (PDOException $e) {
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 try {
   $pdo = new PDO($dsn,$user,$password);
 
-  $sql_select = 'SELECT genre_code FROM books';
+  $sql_select = 'SELECT genre_code FROM genres';
 
   $stmt_select = $pdo->query($sql_select);
 
@@ -93,7 +93,7 @@ try {
               <?php
 
               foreach($genre_codes as $genre_code) {
-                echo "<option vlaue='{$genre_code}'>{$genre_code}</option>";
+                echo "<option value='{$genre_code}'>{$genre_code}</option>";
               }
               ?>
             </select>
